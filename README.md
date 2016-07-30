@@ -1,2 +1,108 @@
-# notebook
-Web development related notes, instructions, commands etc.
+## Notebook
+> Web development related notes, instructions, commands, snippets etc.
+
+## Table of Contents
+1. MongoDB
+	* [Install MongoDB As A Service In Windows](#install-mongodb-as-a-service-in-windows)
+2. Git
+    * [Initial Setup](#git-initial-setup)
+    * [Generate SSH Key](#generate-ssh-key)
+    * [Manage Branches](#git-branching)
+    * [Manage Tag](#git-tagging)
+    * [Miscellaneous](#miscellaneous-git-commands)
+
+## Install MongoDB As A Service In Windows
+
+1. Download MongoDB from [https://www.mongodb.org/](https://www.mongodb.org/)
+
+2. Extract the contents of the zip file into __C:\mongodb__
+
+3. Add MongoDB in windows path. Edit your environment variable. Append this: __C:\mongodb\bin;__
+
+4. Create a configuration file __C:\mongodb\mongod.conf__ and add these lines:
+
+```
+dbpath=C:\mongodb\data\db
+logpath=C:\mongodb\log\mongo.log
+verbose=vvvvv
+```
+> Note: you have to manually create both __c:\mongodb\data\db__ and __c:\mongodb\log__ directory.
+
+5. Open commad prompt as administrator and run the following commands:
+
+```bash
+mongod -f c:\mongodb\mongod.conf
+mongod -f c:\mongodb\mongod.conf --install
+```
+
+6. Start MongoDB
+
+```bash
+net start mongodb
+```
+> From now on mongodb service will run automatically every time the PC is restarted.
+
+## Git Initial Setup
+
+```bash
+$ git config --global user.name "<your_name>"
+$ git config --global user.email "<your_email>"
+$ git config --global core.editor "<e.g vim>"
+```
+
+## Generate SSH Key
+
+```bash
+$ ssh-keygen -t rsa -C "<your_email>"
+
+# Copy SSH key into the clipboard
+Windows: clip < ~/.ssh/id_rsa.pub
+Linux: xclip -sel clip < ~/.ssh/id_rsa.pub
+OSX: pbcopy < ~/.ssh/id_rsa.pub
+```
+
+## Git Branching
+
+```bash
+# Create new branch and checkout
+git checkout -b <branch_name>
+
+#Delete from local:
+git branch -d <branch_name>
+
+#Delete from remote:
+git push origin --delete <branch_name>
+```
+
+## Git Tagging
+
+```bash
+# Adding tag
+git tag -a <tag_name> -m "<message>"
+git push origin <tag_name>
+
+# Deleting tag
+git tag -d <tag_name>
+git push origin :refs/tags/<tag_name>
+```
+
+## Miscellaneous Git Commands
+
+```bash
+# Adding/Updating remote
+git remote add origin <remote_url>
+git remote set-url origin <remote_url>
+
+# Determine the url that a local git repo cloned from
+git remote show origin
+
+# History of a moved file
+git log --follow <file_name>
+
+# Log
+git log --oneline --graph
+git reflog
+```
+
+## License
+<a href="https://opensource.org/licenses/MIT">The MIT License</a> Copyright &copy; 2016 Shibbir Ahmed
