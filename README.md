@@ -1,15 +1,16 @@
 ## Notebook
-> Web development related notes, instructions, commands, snippets etc.
+> Programming notes, instructions, commands, snippets etc.
 
 ## Table of Contents
 1. MongoDB
 	* [Install MongoDB As A Service In Windows](#install-mongodb-as-a-service-in-windows)
 2. Git
-    * [Initial Setup](#git-initial-setup)
+    * [Environment Configurations](#environment-configurations)
     * [Generate SSH Key](#generate-ssh-key)
-    * [Manage Branches](#git-branching)
-    * [Manage Tag](#git-tagging)
-    * [Miscellaneous](#miscellaneous-git-commands)
+    * [Repository](#repository)
+    * [Manage Branch](#branch)
+    * [Manage Tag](#tag)
+    * [Log](#log)
 
 ## Install MongoDB As A Service In Windows
 
@@ -42,7 +43,7 @@ net start mongodb
 ```
 > From now on mongodb service will run automatically every time the PC is restarted.
 
-## Git Initial Setup
+## Environment Configurations
 
 ```bash
 $ git config --global user.name "<your_name>"
@@ -61,45 +62,55 @@ Linux: xclip -sel clip < ~/.ssh/id_rsa.pub
 OSX: pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-## Git Branching
+## Repository
 
 ```bash
-# Create new branch and checkout
-git checkout -b <branch_name>
-
-#Delete from local:
-git branch -d <branch_name>
-
-#Delete from remote:
-git push origin --delete <branch_name>
-```
-
-## Git Tagging
-
-```bash
-# Adding tag
-git tag -a <tag_name> -m "<message>"
-git push origin <tag_name>
-
-# Deleting tag
-git tag -d <tag_name>
-git push origin :refs/tags/<tag_name>
-```
-
-## Miscellaneous Git Commands
-
-```bash
-# Adding/Updating remote
+# Adding a remote
 git remote add origin <remote_url>
+
+#Updating a remote
 git remote set-url origin <remote_url>
 
 # Determine the url that a local git repo cloned from
 git remote show origin
 
+```
+
+## Branch
+
+```bash
+# Create new branch and checkout
+git checkout -b <branch_name>
+
+#Delete a branch from local
+git branch -d <branch_name>
+
+#Delete a branch from remote origin
+git push origin --delete <branch_name>
+
+#Throw away local commits in Git
+git reset --hard origin/<branch_name>
+```
+
+## Tag
+
+```bash
+# Adding & pushing a tag
+git tag -a <tag_name> -m "<message>"
+git push origin <tag_name>
+
+# Deleting a tag
+git tag -d <tag_name>
+git push origin :refs/tags/<tag_name>
+```
+
+## Log
+
+```bash
 # History of a moved file
 git log --follow <file_name>
 
-# Log
+# Show Log Graph
 git log --oneline --graph
 git reflog
 ```
