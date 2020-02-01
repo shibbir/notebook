@@ -49,6 +49,7 @@ net start mongodb
 $ git config --global user.name "<your_name>"
 $ git config --global user.email "<your_email>"
 $ git config --global core.editor "<e.g vim>"
+$ git config --global core.ignorecase false
 ```
 
 ## Generate SSH Key
