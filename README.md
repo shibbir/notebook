@@ -55,12 +55,12 @@ $ git config --global core.ignorecase false
 ## Generate SSH Key
 
 ```bash
-$ ssh-keygen -t rsa -C "<your_email>"
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 # Copy SSH key into the clipboard
-Windows: clip < ~/.ssh/id_rsa.pub
-Linux: xclip -sel clip < ~/.ssh/id_rsa.pub
-OSX: pbcopy < ~/.ssh/id_rsa.pub
+# For Windows: $ clip < ~/.ssh/id_rsa.pub
+# For Linux: $ xclip -sel clip < ~/.ssh/id_rsa.pub
+# For OSX: $ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 ## Repository
