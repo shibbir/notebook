@@ -1,5 +1,5 @@
 ## Notebook
-> Programming notes, instructions, commands, snippets etc.
+> Programming notes, instructions, commands, snippets, etc.
 
 ## Table of Contents
 1. MongoDB
@@ -18,7 +18,7 @@
 
 2. Extract the contents of the zip file into __C:\mongodb__
 
-3. Add MongoDB in windows path. Edit your environment variable. Append this: __C:\mongodb\bin;__
+3. Add MongoDB to the Windows path. Edit your environment variable. Append this: __C:\mongodb\bin;__
 
 4. Create a configuration file __C:\mongodb\mongod.conf__ and add these lines:
 
@@ -29,7 +29,7 @@ verbose=vvvvv
 ```
 > Note: you have to manually create both __c:\mongodb\data\db__ and __c:\mongodb\log__ directory.
 
-5. Open commad prompt as administrator and run the following commands:
+5. Open the command prompt as administrator and run the following commands:
 
 ```bash
 mongod -f c:\mongodb\mongod.conf
@@ -41,7 +41,7 @@ mongod -f c:\mongodb\mongod.conf --install
 ```bash
 net start mongodb
 ```
-> From now on mongodb service will run automatically every time the PC is restarted.
+> From now on, mongodb service will run automatically every time the PC is restarted.
 
 ## Environment Configurations
 
@@ -72,7 +72,7 @@ git remote add origin <remote_url>
 #Updating a remote
 git remote set-url origin <remote_url>
 
-# Determine the url that a local git repo cloned from
+# Determine the URL that a local git repo cloned from
 git remote show origin
 
 ```
@@ -80,13 +80,13 @@ git remote show origin
 ## Branch
 
 ```bash
-# Create new branch and checkout
+# Create a new branch and checkout
 git checkout -b <branch_name>
 
 #Delete a branch from local
 git branch -d <branch_name>
 
-#Delete a branch from remote origin
+#Delete a branch from the remote origin
 git push origin --delete <branch_name>
 
 #Throw away local commits in Git
@@ -103,6 +103,13 @@ git push origin <tag_name>
 # Deleting a tag
 git tag -d <tag_name>
 git push origin :refs/tags/<tag_name>
+```
+
+## Commit
+
+```bash
+# Discard all commits made after a certain commit
+$ git reset --hard <commit>
 ```
 
 ## Log
