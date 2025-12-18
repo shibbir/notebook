@@ -91,6 +91,12 @@ git push origin --delete <branch_name>
 
 #Throw away local commits in Git
 git reset --hard origin/<branch_name>
+
+# Going back to an old commit (rewrites history)
+git checkout <branch_name>
+git reset --hard <destination_commit_hash>
+git push origin <branch_name> --force
+
 ```
 
 ## Tag
